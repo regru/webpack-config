@@ -1,0 +1,48 @@
+{
+  "name": "@regru/webpack-config",
+  "version": "1.2.0",
+  "description": "Basic config for webpack projects",
+  "main": "webpack-base.config.js",
+  "scripts": {
+    "test": "mocha",
+    "lint": "eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/regru/webpack-config.git"
+  },
+  "author": "Andrey Makarychev <shiftmailbox@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "webpack"
+  ],
+  "peerDependencies": {
+    "@regru/bem-loader": "^0.3.0",
+    "@regru/extract-text-webpack-plugin": "^3.0.2-regru",
+    "@regru/img-loader": "^2.0.1-regru",
+    "@regru/webpack-stats-plugin": "^0.2.0-regru",
+    "compression-webpack-plugin": "^1.0.0",
+    "glob": "^7.0.0",
+    "read-yaml": "^1.0.0",
+    "webpack": "^3.12.0",
+    "webpack-common-shake": "^1.5.3",
+    "svg-url-loader": "^2.3.2",
+    "file-loader": "^1.1.11"
+  },
+  "devDependencies": {
+    "@regru/bem-loader": "^0.3.0",
+    "@regru/eslint-config-regru-light": "^2.0.1",
+    "@regru/extract-text-webpack-plugin": "^3.0.2-regru",
+    "@regru/img-loader": "^2.0.1-regru",
+    "@regru/webpack-stats-plugin": "^0.2.0-regru",
+    "compression-webpack-plugin": "^1.0.0",
+    "eslint": "^4.19.1",
+    "file-loader": "^1.1.11",
+    "glob": "^7.0.0",
+    "mocha": "^5.1.1",
+    "read-yaml": "^1.0.0",
+    "svg-url-loader": "^2.3.2",
+    "webpack": "^3.12.0",
+    "webpack-common-shake": "^1.5.3"
+  }
+}
