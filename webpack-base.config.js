@@ -74,9 +74,7 @@ module.exports = {
                 exclude : [
                     /(deps|bemdecl)\.js$/,
                     /bower_components/,
-                    /node_modules(?!\/cloudvps-panel)/,
-                    /node_modules(?!\/frontend-components)/,
-                    /node_modules\/.+\/([\w-]+\.)*(?!babel)[\w-]*\.js$/,
+                    /node_modules(?!\/(cloudvps-panel|frontend-components))/,
                 ],
                 use : [ 'babel-loader' ],
             },
