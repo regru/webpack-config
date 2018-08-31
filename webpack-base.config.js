@@ -171,6 +171,7 @@ module.exports = {
                                         'ru/space/afterPunctuation',
                                         'common/space/bracket',
                                         'common/space/delRepeatSpace',
+                                        'ru/other/phone-number',
                                     ],
                                 },
                             },
