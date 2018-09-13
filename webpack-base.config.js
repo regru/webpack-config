@@ -7,6 +7,7 @@ const { DefinePlugin } = require('webpack');
 const ShakePlugin = require('webpack-common-shake').Plugin;
 const webpack = require('webpack');
 const CompressionPlugin = require('compression-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const imageLoadersList = require('./imageLoadersList');
 const svgLoadersList = require('./svgLoadersList');
@@ -237,6 +238,8 @@ module.exports = {
 };
 
 module.exports.plugins = [
+
+    new VueLoaderPlugin(),
 
     new ExtractTextPlugin( {
         filename  : isProduction ? '[name].[contenthash].css' : '[name].css',
