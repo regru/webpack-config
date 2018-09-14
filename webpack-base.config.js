@@ -7,6 +7,7 @@ const { DefinePlugin } = require('webpack');
 const ShakePlugin = require('webpack-common-shake').Plugin;
 const webpack = require('webpack');
 const CompressionPlugin = require('compression-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const imageLoadersList = require('./imageLoadersList');
 const svgLoadersList = require('./svgLoadersList');
@@ -97,6 +98,7 @@ module.exports = {
                 test   : /\.less$/,
                 loader : ExtractTextPlugin.extract( {
                     use : [
+                        'vue-style-loader',
                         {
                             loader  : 'css-loader',
                             options : {
@@ -114,6 +116,7 @@ module.exports = {
                 test   : /\.css$/,
                 loader : ExtractTextPlugin.extract( {
                     use : [
+                        'vue-style-loader',
                         {
                             loader  : 'css-loader',
                             options : {
@@ -198,26 +201,6 @@ module.exports = {
                 use  : [
                     {
                         loader  : 'vue-loader',
-                        options : {
-                            loaders : {
-                                css : ExtractTextPlugin.extract( {
-                                    use : [
-                                        'css-loader',
-                                        'postcss-loader',
-                                    ],
-                                    fallback : 'vue-style-loader',
-                                } ),
-
-                                less : ExtractTextPlugin.extract( {
-                                    use : [
-                                        'css-loader',
-                                        'postcss-loader',
-                                        'less-loader',
-                                    ],
-                                    fallback : 'vue-style-loader',
-                                } ),
-                            },
-                        },
                     },
                 ],
             },
@@ -237,6 +220,8 @@ module.exports = {
 };
 
 module.exports.plugins = [
+
+    new VueLoaderPlugin(),
 
     new ExtractTextPlugin( {
         filename  : isProduction ? '[name].[contenthash].css' : '[name].css',
