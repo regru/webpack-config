@@ -98,7 +98,6 @@ module.exports = {
                 test   : /\.less$/,
                 loader : ExtractTextPlugin.extract( {
                     use : [
-                        'vue-style-loader',
                         {
                             loader  : 'css-loader',
                             options : {
@@ -116,7 +115,6 @@ module.exports = {
                 test   : /\.css$/,
                 loader : ExtractTextPlugin.extract( {
                     use : [
-                        'vue-style-loader',
                         {
                             loader  : 'css-loader',
                             options : {
