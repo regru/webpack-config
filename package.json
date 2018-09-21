@@ -1,6 +1,6 @@
 {
   "name": "@regru/webpack-config",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "Basic config for webpack projects",
   "main": "webpack-base.config.js",
   "scripts": {
@@ -20,7 +20,7 @@
     "@regru/bem-loader": "^0.3.0",
     "@regru/extract-text-webpack-plugin": "^3.0.2-regru",
     "@regru/img-loader": "^2.0.1-regru",
-    "@regru/webpack-stats-plugin": "^0.2.0-regru",
+    "@regru/webpack-stats-plugin": "^0.2.2",
     "compression-webpack-plugin": "^1.0.0",
     "glob": "^7.0.0",
     "read-yaml": "^1.0.0",
