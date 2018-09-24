@@ -72,11 +72,16 @@ module.exports = {
 
             {
                 test    : /\.js$/,
-                exclude : [
-                    /(deps|bemdecl)\.js$/,
-                    /bower_components/,
-                    /node_modules(?!\/(cloudvps-panel|frontend-components))/,
-                ],
+                exclude : file => (
+                    /(deps|bemdecl)\.js$/.test( file )
+                    || /bower_components/.test( file )
+                    || (
+                        /node_modules/.test( file )
+                        && !/(cloudvps-panel|frontend-components)/.test( file )
+                        && !/\.vue\.js$/.test( file )
+                        && !/\.babel\.js$/.test( file )
+                    )
+                ),
                 use : [ 'babel-loader' ],
             },
 
