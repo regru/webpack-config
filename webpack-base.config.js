@@ -29,14 +29,14 @@ module.exports = {
             path.resolve('./assets'),
             path.resolve('./bem/apps'),
             path.resolve('./node_modules'),
-            path.resolve('./bower_components'),
         ],
 
         alias : {
             dictionary : absolutePath('assets/locales'),
             zoneinfo   : absolutePath('config/zoneinfo'),
             modernizr$ : absolutePath('.modernizrrc'),
-            jQuery$    : 'jquery',
+            jQuery$    : 'jquery/dist/jquery.js',
+            jquery$    : 'jquery/dist/jquery.js',
             vue$       : 'vue/dist/vue.esm.js',
         },
     },
