@@ -1,4 +1,7 @@
-const urlLoader = { loader: 'svg-url-loader' };
+const fileLoader = {
+    loader: 'file-loader',
+    options : { name: '[name].[ext]' },
+};
 const imgLoader = {
     loader  : '@regru/img-loader',
     options : {
@@ -51,15 +54,17 @@ function getLoadersList( withOptimizers, env, context ) {
         case isProductionBuild:
         case isDevBuild:
         default:
+            fileLoader.options.name = '[name].[hash].[ext]';
+
             if ( withOptimizers ) {
                 return [
-                    urlLoader,
+                    fileLoader,
                     imgLoader,
                 ];
             }
 
             return [
-                urlLoader,
+                fileLoader,
             ];
 
         case isDevServer:
