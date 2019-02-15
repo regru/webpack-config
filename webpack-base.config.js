@@ -12,7 +12,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const imageLoadersList = require('./imageLoadersList');
 const svgLoadersList = require('./svgLoadersList');
 
-const LEVELS       = glob.sync('bem/blocks*').map( level => path.resolve( `./${level}` ) );
+const LEVELS       = glob.sync('bem/blocks*').map( level => path.resolve(`./${level}`) );
 const isProduction = process.env.NODE_ENV === 'production';
 const isDevServer  = process.argv.reduce( ( prev, arg ) => prev + arg.includes('webpack-dev-server'), 0 );
 const rootPath     = absolutePath();
@@ -203,7 +203,7 @@ module.exports = {
                 test : /\.vue$/,
                 use  : [
                     {
-                        loader  : 'vue-loader',
+                        loader : 'vue-loader',
                     },
                 ],
             },
@@ -248,7 +248,7 @@ if ( isProduction ) {
         new CompressionPlugin( {
             asset     : '[path].gz',
             algorithm : 'gzip',
-            test      : /\.js$|\.css$/,
+            test      : /\.js$|\.css$|\.svg$/,
             threshold : 10240, // eslint-disable-line no-magic-numbers
             minRatio  : 0.8, // eslint-disable-line no-magic-numbers
         } ),

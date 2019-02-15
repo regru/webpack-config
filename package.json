@@ -1,6 +1,6 @@
 {
   "name": "@regru/webpack-config",
-  "version": "2.0.0",
+  "version": "2.1.0-test",
   "description": "Basic config for webpack projects",
   "main": "webpack-base.config.js",
   "scripts": {
@@ -18,7 +18,7 @@
   ],
   "peerDependencies": {
     "@regru/bem-loader": "^0.3.0",
-    "@regru/extract-text-webpack-plugin": "^3.0.2-regru",
+    "@regru/extract-text-webpack-plugin": "^3.0.3-regru",
     "@regru/img-loader": "^2.0.1-regru",
     "@regru/webpack-stats-plugin": "^0.2.2",
     "compression-webpack-plugin": "^1.0.0",
@@ -32,7 +32,7 @@
   "devDependencies": {
     "@regru/bem-loader": "^0.3.0",
     "@regru/eslint-config-regru-light": "^2.0.1",
-    "@regru/extract-text-webpack-plugin": "^3.0.2-regru",
+    "@regru/extract-text-webpack-plugin": "^3.0.3-regru",
     "@regru/img-loader": "^2.0.1-regru",
     "@regru/webpack-stats-plugin": "^0.2.0-regru",
     "compression-webpack-plugin": "^1.0.0",
