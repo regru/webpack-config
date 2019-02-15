@@ -1,6 +1,9 @@
-const fileLoader = {
-    loader  : 'file-loader',
+const MAX_DATA_URL_LEN = 4096;
+
+const urlLoader = {
+    loader  : 'url-loader',
     options : { name: '[name].[ext]' },
+    limit   : MAX_DATA_URL_LEN,
 };
 const imgLoader = {
     loader  : '@regru/img-loader',
@@ -54,17 +57,17 @@ function getLoadersList( withOptimizers, env, context ) {
         case isProductionBuild:
         case isDevBuild:
         default:
-            fileLoader.options.name = '[name].[hash].[ext]';
+            urlLoader.options.name = '[name].[hash].[ext]';
 
             if ( withOptimizers ) {
                 return [
-                    fileLoader,
+                    urlLoader,
                     imgLoader,
                 ];
             }
 
             return [
-                fileLoader,
+                urlLoader,
             ];
 
         case isDevServer:
