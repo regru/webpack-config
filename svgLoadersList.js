@@ -1,7 +1,7 @@
 const MAX_DATA_URL_LEN = 4096;
 
 const urlLoader = {
-    loader  : 'url-loader',
+    loader  : 'svg-url-loader',
     options : { name: '[name].[ext]' },
     limit   : MAX_DATA_URL_LEN,
 };
