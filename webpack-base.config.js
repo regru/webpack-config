@@ -20,6 +20,7 @@ function absolutePath( ...dirs ) {
 }
 
 module.exports = {
+    mode    : isProduction ? 'production' : 'development',
     resolve : {
 
         modules : [
