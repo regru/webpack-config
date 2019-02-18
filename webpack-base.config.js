@@ -223,14 +223,7 @@ module.exports = {
 
     optimization : {
         minimizer : [
-            new UglifyJsPlugin( {
-                warnings : false,
-                comments : false,
-                compress : {
-                    drop_console  : true,
-                    drop_debugger : true,
-                },
-            } ),
+            new UglifyJsPlugin(),
         ],
     },
 
@@ -260,7 +253,6 @@ if ( isProduction ) {
             minRatio  : 0.8, // eslint-disable-line no-magic-numbers
         } ),
 
-        new ShakePlugin(),
     );
 }
 
