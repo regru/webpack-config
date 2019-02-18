@@ -1,4 +1,12 @@
-const urlLoader = { loader: 'svg-url-loader' };
+const MAX_DATA_URL_LEN = 4096;
+
+const urlLoader = {
+    loader  : 'svg-url-loader',
+    options : {
+        name  : '[name].[ext]',
+        limit : MAX_DATA_URL_LEN,
+    },
+};
 const imgLoader = {
     loader  : '@regru/img-loader',
     options : {
@@ -51,6 +59,8 @@ function getLoadersList( withOptimizers, env, context ) {
         case isProductionBuild:
         case isDevBuild:
         default:
+            urlLoader.options.name = '[name].[hash].[ext]';
+
             if ( withOptimizers ) {
                 return [
                     urlLoader,
