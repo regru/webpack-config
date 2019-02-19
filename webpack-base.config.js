@@ -239,7 +239,7 @@ if ( isProduction ) {
         new CompressionPlugin( {
             asset     : '[path].gz',
             algorithm : 'gzip',
-            test      : /\.js$|\.css$/,
+            test      : /\.js$|\.css$|\.svg$/,
             threshold : 10240, // eslint-disable-line no-magic-numbers
             minRatio  : 0.8, // eslint-disable-line no-magic-numbers
         } ),
