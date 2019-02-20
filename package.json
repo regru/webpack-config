@@ -26,7 +26,8 @@
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3",
     "svg-url-loader": "^2.3.2",
-    "file-loader": "^1.1.11"
+    "file-loader": "^1.1.11",
+    "terser-webpack-plugin": "^1.2.2"
   },
   "devDependencies": {
     "@regru/bem-loader": "^0.3.0",
@@ -41,6 +42,7 @@
     "mocha": "^5.1.1",
     "read-yaml": "^1.0.0",
     "svg-url-loader": "^2.3.2",
+    "terser-webpack-plugin": "^1.2.2",
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3"
   }
