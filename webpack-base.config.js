@@ -6,6 +6,7 @@ const { DefinePlugin } = require('webpack');
 const CompressionPlugin = require('compression-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 const imageLoadersList = require('./imageLoadersList');
@@ -253,6 +254,8 @@ module.exports.plugins = [
     new MiniCssExtractPlugin( {
         filename : isProduction ? '[name].[contenthash].css' : '[name].css',
     } ),
+
+    new OptimizeCssAssetsPlugin(),
 
     new DefinePlugin( { 'process.env': { NODE_ENV: `"${process.env.NODE_ENV}"` } } ),
 ];
