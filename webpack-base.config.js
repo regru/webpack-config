@@ -238,6 +238,8 @@ module.exports = {
                   keep_fnames: false,
                   safari10: true,
                 },
+                cache: true,
+                parallel: true,
               }),
         ],
     },
