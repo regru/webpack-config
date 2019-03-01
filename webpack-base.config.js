@@ -259,13 +259,12 @@ module.exports.plugins = [
         filename : isProduction ? '[name].[contenthash].css' : '[name].css',
     } ),
 
-    new OptimizeCssAssetsPlugin(),
-
     new DefinePlugin( { 'process.env': { NODE_ENV: `"${process.env.NODE_ENV}"` } } ),
 ];
 
 if ( isProduction ) {
     module.exports.plugins.push(
+        new OptimizeCssAssetsPlugin(),
         new CompressionPlugin( {
             asset     : '[path].gz',
             algorithm : 'gzip',
