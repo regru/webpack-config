@@ -22,6 +22,7 @@
     "@regru/webpack-stats-plugin": "^0.2.2",
     "compression-webpack-plugin": "^1.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "mini-css-extract-plugin": "^0.5.0",
     "glob": "^7.0.0",
     "read-yaml": "^1.0.0",
     "webpack": "^4.29.5",
