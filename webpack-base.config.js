@@ -12,10 +12,10 @@ const TerserPlugin = require('terser-webpack-plugin');
 const imageLoadersList = require('./imageLoadersList');
 const svgLoadersList = require('./svgLoadersList');
 
-const LEVELS       = glob.sync('bem/blocks*').map( level => path.resolve(`./${level}`) );
+const LEVELS = glob.sync('bem/blocks*').map( level => path.resolve(`./${level}`) );
 const isProduction = process.env.NODE_ENV === 'production';
-const isDevServer  = process.argv.reduce( ( prev, arg ) => prev + arg.includes('webpack-dev-server'), 0 );
-const rootPath     = absolutePath();
+const isDevServer = process.argv.reduce( ( prev, arg ) => prev + arg.includes('webpack-dev-server'), 0 );
+const rootPath = absolutePath();
 
 function absolutePath( ...dirs ) {
     return path.join( process.cwd(), ...dirs );
