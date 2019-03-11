@@ -1,6 +1,6 @@
 {
   "name": "@regru/webpack-config",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "Basic config for webpack projects",
   "main": "webpack-base.config.js",
   "scripts": {
