@@ -2,26 +2,27 @@ const path = require('path');
 
 const glob = require('glob');
 const readYaml = require('read-yaml');
-const ExtractTextPlugin = require('@regru/extract-text-webpack-plugin');
 const { DefinePlugin } = require('webpack');
-const ShakePlugin = require('webpack-common-shake').Plugin;
-const webpack = require('webpack');
 const CompressionPlugin = require('compression-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 const imageLoadersList = require('./imageLoadersList');
 const svgLoadersList = require('./svgLoadersList');
 
-const LEVELS       = glob.sync('bem/blocks*').map( level => path.resolve(`./${level}`) );
+const LEVELS = glob.sync('bem/blocks*').map( level => path.resolve(`./${level}`) );
 const isProduction = process.env.NODE_ENV === 'production';
-const isDevServer  = process.argv.reduce( ( prev, arg ) => prev + arg.includes('webpack-dev-server'), 0 );
-const rootPath     = absolutePath();
+const isDevServer = process.argv.reduce( ( prev, arg ) => prev + arg.includes('webpack-dev-server'), 0 );
+const rootPath = absolutePath();
 
 function absolutePath( ...dirs ) {
     return path.join( process.cwd(), ...dirs );
 }
 
 module.exports = {
+    mode    : isProduction ? 'production' : 'development',
     resolve : {
 
         modules : [
@@ -100,36 +101,38 @@ module.exports = {
             },
 
             {
-                test   : /\.less$/,
-                loader : ExtractTextPlugin.extract( {
-                    use : [
-                        {
-                            loader  : 'css-loader',
-                            options : {
-                                minimize      : isProduction,
-                                importLoaders : 2,
-                            },
+                test : /\.less$/,
+                use  : [
+                    {
+                        loader : MiniCssExtractPlugin.loader,
+                    },
+                    {
+                        loader  : 'css-loader',
+                        options : {
+                            minimize      : isProduction,
+                            importLoaders : 2,
                         },
-                        'postcss-loader',
-                        'less-loader',
-                    ],
-                } ),
+                    },
+                    'postcss-loader',
+                    'less-loader',
+                ],
             },
 
             {
-                test   : /\.css$/,
-                loader : ExtractTextPlugin.extract( {
-                    use : [
-                        {
-                            loader  : 'css-loader',
-                            options : {
-                                minimize      : isProduction,
-                                importLoaders : 1,
-                            },
+                test : /\.css$/,
+                use  : [
+                    {
+                        loader : MiniCssExtractPlugin.loader,
+                    },
+                    {
+                        loader  : 'css-loader',
+                        options : {
+                            minimize      : isProduction,
+                            importLoaders : 1,
                         },
-                        'postcss-loader',
-                    ],
-                } ),
+                    },
+                    'postcss-loader',
+                ],
             },
 
             {
@@ -217,7 +220,33 @@ module.exports = {
         ],
     },
 
-    devtool : isProduction ? 'source-map' : 'cheap-eval-source-map',
+    optimization : {
+        minimizer : [
+            new TerserPlugin({
+                terserOptions: {
+                  ecma: undefined,
+                  warnings: false,
+                  parse: {},
+                  compress: {
+                    drop_console: true,
+                  },
+                  mangle: true, // Note `mangle.properties` is `false` by default.
+                  module: false,
+                  output: null,
+                  toplevel: false,
+                  nameCache: null,
+                  ie8: false,
+                  keep_classnames: undefined,
+                  keep_fnames: false,
+                  safari10: true,
+                },
+                cache: true,
+                parallel: true,
+              }),
+        ],
+    },
+
+    devtool : isProduction ? false : 'cheap-eval-source-map',
 
     stats : 'errors-only',
 };
@@ -226,9 +255,8 @@ module.exports.plugins = [
 
     new VueLoaderPlugin(),
 
-    new ExtractTextPlugin( {
-        filename  : isProduction ? '[name].[contenthash].css' : '[name].css',
-        allChunks : true,
+    new MiniCssExtractPlugin( {
+        filename : isProduction ? '[name].[contenthash].css' : '[name].css',
     } ),
 
     new DefinePlugin( { 'process.env': { NODE_ENV: `"${process.env.NODE_ENV}"` } } ),
@@ -236,15 +264,7 @@ module.exports.plugins = [
 
 if ( isProduction ) {
     module.exports.plugins.push(
-        new webpack.optimize.UglifyJsPlugin( {
-            warnings : false,
-            comments : false,
-            compress : {
-                drop_console  : true,
-                drop_debugger : true,
-            },
-        } ),
-
+        new OptimizeCssAssetsPlugin(),
         new CompressionPlugin( {
             asset     : '[path].gz',
             algorithm : 'gzip',
@@ -252,8 +272,6 @@ if ( isProduction ) {
             threshold : 10240, // eslint-disable-line no-magic-numbers
             minRatio  : 0.8, // eslint-disable-line no-magic-numbers
         } ),
-
-        new ShakePlugin(),
     );
 }
 

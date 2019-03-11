@@ -1,6 +1,6 @@
 {
   "name": "@regru/webpack-config",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "Basic config for webpack projects",
   "main": "webpack-base.config.js",
   "scripts": {
@@ -18,31 +18,35 @@
   ],
   "peerDependencies": {
     "@regru/bem-loader": "^0.3.0",
-    "@regru/extract-text-webpack-plugin": "^3.0.3-regru",
     "@regru/img-loader": "^2.0.1-regru",
     "@regru/webpack-stats-plugin": "^0.2.2",
     "compression-webpack-plugin": "^1.0.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "mini-css-extract-plugin": "^0.5.0",
     "glob": "^7.0.0",
     "read-yaml": "^1.0.0",
-    "webpack": "^3.12.0",
-    "webpack-common-shake": "^1.5.3",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3",
     "svg-url-loader": "^2.3.2",
-    "file-loader": "^1.1.11"
+    "file-loader": "^1.1.11",
+    "terser-webpack-plugin": "^1.2.2"
   },
   "devDependencies": {
     "@regru/bem-loader": "^0.3.0",
     "@regru/eslint-config-regru-light": "^2.0.1",
-    "@regru/extract-text-webpack-plugin": "^3.0.3-regru",
     "@regru/img-loader": "^2.0.1-regru",
     "@regru/webpack-stats-plugin": "^0.2.0-regru",
     "compression-webpack-plugin": "^1.0.0",
     "eslint": "^4.19.1",
     "file-loader": "^1.1.11",
     "glob": "^7.0.0",
+    "mini-css-extract-plugin": "^0.5.0",
     "mocha": "^5.1.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
     "read-yaml": "^1.0.0",
     "svg-url-loader": "^2.3.2",
-    "webpack": "^3.12.0",
-    "webpack-common-shake": "^1.5.3"
+    "terser-webpack-plugin": "^1.2.2",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3"
   }
 }
