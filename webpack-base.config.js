@@ -78,7 +78,7 @@ module.exports = {
                     || /bower_components/.test( file )
                     || (
                         /node_modules/.test( file )
-                        && !/(cloudvps-panel|frontend-components)/.test( file )
+                        && !/(cloudvps-panel|frontend-components|@regru)/.test( file )
                         && !/\.vue\.js$/.test( file )
                         && !/\.babel\.js$/.test( file )
                     )
