@@ -18,6 +18,7 @@
   ],
   "peerDependencies": {
     "@regru/bem-loader": "^0.3.0",
+    "@regru/dict-loader": "^1.0.4",
     "@regru/img-loader": "^2.0.1-regru",
     "@regru/webpack-stats-plugin": "^0.2.2",
     "compression-webpack-plugin": "^1.0.0",
