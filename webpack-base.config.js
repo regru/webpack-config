@@ -104,7 +104,10 @@ module.exports = {
                 test : /\.less$/,
                 use  : [
                     {
-                        loader : MiniCssExtractPlugin.loader,
+                        loader  : MiniCssExtractPlugin.loader,
+                        options : {
+                            hmr : !isProduction,
+                        },
                     },
                     {
                         loader  : 'css-loader',
@@ -122,7 +125,10 @@ module.exports = {
                 test : /\.css$/,
                 use  : [
                     {
-                        loader : MiniCssExtractPlugin.loader,
+                        loader  : MiniCssExtractPlugin.loader,
+                        options : {
+                            hmr : !isProduction,
+                        },
                     },
                     {
                         loader  : 'css-loader',
