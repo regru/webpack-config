@@ -228,27 +228,27 @@ module.exports = {
 
     optimization : {
         minimizer : [
-            new TerserPlugin({
-                terserOptions: {
-                  ecma: undefined,
-                  warnings: false,
-                  parse: {},
-                  compress: {
-                    drop_console: true,
-                  },
-                  mangle: true, // Note `mangle.properties` is `false` by default.
-                  module: false,
-                  output: null,
-                  toplevel: false,
-                  nameCache: null,
-                  ie8: false,
-                  keep_classnames: undefined,
-                  keep_fnames: false,
-                  safari10: true,
+            new TerserPlugin( {
+                terserOptions : {
+                    ecma     : undefined,
+                    warnings : false,
+                    parse    : {},
+                    compress : {
+                        drop_console : true,
+                    },
+                    mangle          : true, // Note `mangle.properties` is `false` by default.
+                    module          : false,
+                    output          : null,
+                    toplevel        : false,
+                    nameCache       : null,
+                    ie8             : false,
+                    keep_classnames : undefined,
+                    keep_fnames     : false,
+                    safari10        : true,
                 },
-                cache: true,
-                parallel: true,
-              }),
+                cache    : true,
+                parallel : true,
+            } ),
         ],
     },
 
