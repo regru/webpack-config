@@ -1,6 +1,6 @@
 {
   "name": "@regru/webpack-config",
-  "version": "3.0.2",
+  "version": "4.0.0",
   "description": "Basic config for webpack projects",
   "main": "webpack-base.config.js",
   "scripts": {
@@ -17,7 +17,7 @@
     "webpack"
   ],
   "peerDependencies": {
-    "@regru/bem-loader": "^0.3.0",
+    "@regru/bem-loader": "^1.1.1",
     "@regru/dict-loader": "^1.0.4",
     "@regru/img-loader": "^2.0.1-regru",
     "@regru/webpack-stats-plugin": "^0.2.2",
@@ -33,7 +33,7 @@
     "terser-webpack-plugin": "^1.2.2"
   },
   "devDependencies": {
-    "@regru/bem-loader": "^0.3.0",
+    "@regru/bem-loader": "^1.1.1",
     "@regru/dict-loader": "^1.0.4",
     "@regru/eslint-config-regru-light": "^2.0.1",
     "@regru/img-loader": "^2.0.1-regru",
