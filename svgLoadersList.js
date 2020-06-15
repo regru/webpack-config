@@ -1,4 +1,4 @@
-const MAX_DATA_URL_LEN = 4096;
+const MAX_DATA_URL_LEN = 1;
 
 const urlLoader = {
     loader  : 'svg-url-loader',
