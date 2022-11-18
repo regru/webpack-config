@@ -28,7 +28,7 @@
     "read-yaml": "^1.0.0",
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3",
-    "svg-url-loader": "^2.3.2",
+    "svg-url-loader": "^8.0.0",
     "file-loader": "^1.1.11",
     "terser-webpack-plugin": "^1.2.2"
   },
@@ -46,7 +46,7 @@
     "mocha": "^5.1.1",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "read-yaml": "^1.0.0",
-    "svg-url-loader": "^2.3.2",
+    "svg-url-loader": "^8.0.0",
     "terser-webpack-plugin": "^1.2.2",
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3"
